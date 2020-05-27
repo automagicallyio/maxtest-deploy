@@ -1,4 +1,4 @@
-name: 'dacpac-deploy'
+name: 'maxtest-deploy'
 description: 'This action deploys a database schema using a dacpac'
 author: 'automagicallyio'
 inputs:
