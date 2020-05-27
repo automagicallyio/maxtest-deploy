@@ -1,12 +1,9 @@
 import * as core from '@actions/core';
+import Deployer = require("./DacpacDeployer");
 async function run() {
   try {
-    const connectionString = core.getInput('connectionString');
-    const dacpac = core.getInput('dacpac');
-    const additionalArguments = core.getInput('additionalArguments');
-    console.log("connection string: " + connectionString);
-    console.log("dacpac: " + dacpac);
-    console.log("additionalArguments: " + additionalArguments);
+    let myDeployer = new Deployer.DacpacDeployer();
+    myDeployer.deploy();
   } catch (error) {
     core.setFailed(error.message);
   }
