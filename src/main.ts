@@ -1,19 +1,14 @@
-import * as core from '@actions/core'
-import {wait} from './wait'
-
-async function run(): Promise<void> {
+import * as core from '@actions/core';
+async function run() {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`)
-
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
+    const connectionString = core.getInput('connectionString');
+    const dacpac = core.getInput('dacpac');
+    const additionalArguments = core.getInput('additionalArguments');
+    console.log("connection string: " + connectionString);
+    console.log("dacpac: " + dacpac);
+    console.log("additionalArguments: " + additionalArguments);
   } catch (error) {
-    core.setFailed(error.message)
+    core.setFailed(error.message);
   }
 }
-
-run()
+run();
