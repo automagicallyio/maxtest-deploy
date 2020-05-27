@@ -1,10 +1,16 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'dacpac-deploy'
+description: 'This action deploys a database schema using a dacpac'
+author: 'automagicallyio'
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  connectionString: 
+    description: 'Connection string to the SQL Server database'
+    required: true
+  dacpac:
+    description: 'Path to the dacpac file.'
+    required: true
+  additionalArguments:
+    description: 'Additional SqlPackage.exe arguments that will be applied when deploying the SQL Database'
+    required: false
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  main: 'lib/main.js'
