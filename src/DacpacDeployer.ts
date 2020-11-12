@@ -11,7 +11,7 @@ export class DacpacDeployer {
         this.dacpac = core.getInput('dacpac');
         this.additionalArguments = core.getInput('additionalArguments');
         // get workspace path from environment variable
-        this.workspacePath = <string>process.env.GITHUB_WORKSPACE;
+        // this.workspacePath = <string>process.env.GITHUB_WORKSPACE;
     }
     deploy(): void {
         // add sql package.exe to path
