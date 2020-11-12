@@ -15,9 +15,9 @@ export class DacpacDeployer {
     }
     deploy(): void {
         // add sql package.exe to path
-        console.log("adding path...");
-        echo "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\150" >> $GITHUB_PATH
-        console.log("path added");
+        //console.log("adding path...");
+        //echo "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\150" >> $GITHUB_PATH;
+        //console.log("path added");
         // getting input variables and workspace path to create the command line command string
         console.log("updating database...");
         console.log("connectionString: " + this.connectionString);
@@ -26,7 +26,7 @@ export class DacpacDeployer {
         console.log("workspace: " + this.workspacePath);
         console.log("");
         // create command string from all the inputs and workspace path
-        let commandString = "sqlpackage.exe /Action:Publish /SourceFile:\"" + this.workspacePath + "\\" + this.dacpac + "\" /TargetConnectionString:\"" + this.connectionString + "\" " + this.additionalArguments;
+        let commandString = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Common7\\IDE\\Extensions\\Microsoft\\SQLDB\\DAC\\150\\sqlpackage.exe /Action:Publish /SourceFile:\"" + this.workspacePath + "\\" + this.dacpac + "\" /TargetConnectionString:\"" + this.connectionString + "\" " + this.additionalArguments;
         console.log("command string: " + commandString);
         console.log("");
         // call sql package.exe
